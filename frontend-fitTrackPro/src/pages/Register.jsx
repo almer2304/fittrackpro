@@ -25,8 +25,8 @@ export default function Register(){
         <form onSubmit={handleSubmit}>
             <input placeholder="nama" onChange={(e) => setForm({...form, name: e.target.value})} />
             <input placeholder="email" onChange={(e) => setForm({...form, email: e.target.value})} />
-            <input placeholder="password" onChange={(e) => setForm({...form, password: e.target.value})} />
-            <input placeholder="password confirmation" onChange={(e) => setForm({...form, password_confirmation: e.target.value})} />
+            <input type="password" placeholder="password" onChange={(e) => setForm({...form, password: e.target.value})} />
+            <input type="password" placeholder="password confirmation" onChange={(e) => setForm({...form, password_confirmation: e.target.value})} />
 
             <button>Register</button>
         </form>

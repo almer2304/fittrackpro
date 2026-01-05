@@ -11,7 +11,7 @@ export default function login(){
         e.preventDefault();
 
         try{
-            const res = await api.post("/login");
+            const res = await api.post("/login", form);
 
             //simpen token
             localStorage.setItem("token", res.data.token);
@@ -21,12 +21,12 @@ export default function login(){
             alert("Gagal login")
         }
         
-    };
+    }
 
     return(
         <form onSubmit={handleSubmit}>
-            <input placeholder="email" onChange={setForm({...form, email: e.target.value})}/>
-            <input type="password" placeholder="password" onChange={setForm({...form, password: e.target.value})}/>
+            <input placeholder="email" onChange={(e) => setForm({...form, email: e.target.value})}/>
+            <input type="password" placeholder="password" onChange={(e) => setForm({...form, password: e.target.value})}/>
             <button>Login</button>
         </form>
     )
