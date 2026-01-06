@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_profiles', function (Blueprint $table) {
+        Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            $table->string('tinggi_badan');
-            $table->string('berat_badan');
-            $table->string('umur');
-            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            $table->string('name')->index();
+            $table->string('muscle_group')->index();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_profiles');
+        Schema::dropIfExists('exercises');
     }
 };

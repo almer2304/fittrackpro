@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('body_metrics', function (Blueprint $table) {
+        Schema::create('body_weights', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->float('weight');
+            $table->date('recorded_at')->index();
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('body_metrics');
+        Schema::dropIfExists('body_weights');
     }
 };

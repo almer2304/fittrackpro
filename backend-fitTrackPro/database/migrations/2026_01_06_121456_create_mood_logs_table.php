@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nutrition_logs', function (Blueprint $table) {
+        Schema::create('mood_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->tinyInteger('mood_level'); // 1-5
+            $table->date('recorded_at')->index();
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nutrition_logs');
+        Schema::dropIfExists('mood_logs');
     }
 };

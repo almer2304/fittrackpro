@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('workouts', function (Blueprint $table) {
+        Schema::create('user_coaches', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('coach_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
+            $table->unique(['user_id', 'coach_id']);
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('workouts');
+        Schema::dropIfExists('user_coaches');
     }
 };
