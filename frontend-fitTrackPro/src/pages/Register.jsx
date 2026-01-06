@@ -21,14 +21,9 @@ export default function Register(){
         }
     };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input placeholder="nama" onChange={(e) => setForm({...form, name: e.target.value})} />
-            <input placeholder="email" onChange={(e) => setForm({...form, email: e.target.value})} />
-            <input type="password" placeholder="password" onChange={(e) => setForm({...form, password: e.target.value})} />
-            <input type="password" placeholder="password confirmation" onChange={(e) => setForm({...form, password_confirmation: e.target.value})} />
-
-            <button>Register</button>
-        </form>
-    )
+     return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
+      <h1 className="text-3xl font-bold">Tailwind Aktif 🔥</h1>
+    </div>
+  )
 }
